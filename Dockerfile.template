@@ -1,20 +1,13 @@
 FROM balenalib/raspberrypi4-64-node
 
 # Install apt deps
-RUN apt-get clean && apt-get update && apt-get upgrade -y && apt-get install -y \
-  wget \
-  curl \
-  apt-utils \
-  build-essential \
-  openssh-server \
-  vim \
-  raspberrypi-sys-mods \
-  dnsmasq \
-  samba \
-  genisoimage \
-  syslinux-common \
-  pxelinux \
-  && rm -rf /var/lib/apt/lists/*
+RUN apt-get clean && apt-get update
+
+RUN apt-get upgrade -y 
+
+RUN apt-get install -y wget curl apt-utils build-essential openssh-server vim raspberrypi-sys-mods dnsmasq samba genisoimage  syslinux-common pxelinux 
+
+RUN rm -rf /var/lib/apt/lists/*
 
 # We need wimtools from debian unstable, but everything else (above) should be stable only
 RUN echo "deb http://deb.debian.org/debian sid main" > /etc/apt/sources.list.d/debian-unstable.list \
