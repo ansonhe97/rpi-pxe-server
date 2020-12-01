@@ -5,7 +5,7 @@ RUN apt-get clean && apt-get update
 
 RUN apt-get upgrade -y 
 
-RUN apt-get install -y wget curl apt-utils build-essential openssh-server vim raspberrypi-sys-mods dnsmasq samba genisoimage  syslinux-common pxelinux 
+RUN apt-get install -y wget curl apt-utils build-essential openssh-server vim dnsmasq samba genisoimage  syslinux-common pxelinux 
 
 RUN rm -rf /var/lib/apt/lists/*
 
